@@ -10,6 +10,8 @@
 # - função buscaFim(ref D: Deque):                      #
 #########################################################
 */
+#ifndef DEQUE_H
+#define DEQUE_H
 
 #include<iostream>
 
@@ -244,3 +246,5 @@ class sequentialDeque : deque<TElem> {
       return sD[tail];
     };
 };
+
+#endif
