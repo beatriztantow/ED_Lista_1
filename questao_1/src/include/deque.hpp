@@ -91,8 +91,14 @@ class linkedDeque : deque<TElem> {
     TElem removeHead() {
       node *headNode = m_node;
       TElem aux = headNode->item;
-      m_node = headNode->next;
-      m_node->prev = nullptr;
+      
+      if (headNode->next) {  
+        m_node = headNode->next;
+        m_node->prev = nullptr;
+      }else {
+        m_node = nullptr;
+      }
+      
       delete headNode;
       return aux;
     };
