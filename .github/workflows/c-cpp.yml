@@ -1,0 +1,26 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: questao1
+      run: make test
+      working-directory: questao_1
+    - name: questao2
+      run: make test
+      working-directory: questao_2
+    - name: questao3
+      run: make test
+      working-directory: questao_3
+      
+      
