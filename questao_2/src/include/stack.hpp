@@ -35,7 +35,10 @@ class stack {
       queueAux = new queue<TElem>();
       count = 0;
     };
-
+    ~stack() {
+      delete queueMain;
+      delete queueAux;
+    }
     TElem pop() {
       TElem resp;
       if (count > 0) {
