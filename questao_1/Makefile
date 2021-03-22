@@ -1,5 +1,6 @@
 test: testDeque
 	build/testDeque
+	valgrind --leak-check=full --error-exitcode=1 build/testDeque
 
 testDeque: test/testDeque.cpp
 	mkdir -p build

@@ -1,7 +1,10 @@
 test: test-stack test-queue test-queue-using-stack
 	./build/testStack
+	valgrind --leak-check=full --error-exitcode=1 build/testStack
 	./build/testQueue
+	valgrind --leak-check=full --error-exitcode=1 build/testQueue
 	./build/testQueueUsingStack
+	valgrind --leak-check=full --error-exitcode=1 build/testQueueUsingStack
 
 test-queue: test/testQueue.cpp
 	mkdir -p build
