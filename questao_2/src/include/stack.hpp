@@ -13,6 +13,9 @@ class queue {
     queue() {
       lD = new linkedDeque<TElem>();
     }
+    ~queue() {
+      delete lD;
+    }
     void enqueue(TElem x) {
       lD->insertTail(x);
     };
