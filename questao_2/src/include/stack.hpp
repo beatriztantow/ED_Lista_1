@@ -39,7 +39,6 @@ class stack {
     TElem pop() {
       TElem resp;
       if (count > 0) {
-        int aux;
         for (int i = 0; i < count - 1; i++) {
           queueAux->enqueue(queueMain->dequeue());
         }

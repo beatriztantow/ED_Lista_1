@@ -13,7 +13,10 @@ class queueUsingStack : queue<T>{
 
   public:
     queueUsingStack() : stackMain(nullptr), stackAux(nullptr) {};
-
+    ~queueUsingStack() {
+      delete stackMain;
+      delete stackAux;
+    }
     void printQUS() {
       if(!isEmpty()){
         stackMain->printStack();

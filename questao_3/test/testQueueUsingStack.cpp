@@ -28,11 +28,12 @@ int main() {
 
   try {
     q->dequeue();
+    delete q;
     assert(false);
-  } catch(const emptyQueueException e) {
+  } catch(const emptyQueueException &e) {
     assert(true);
   }
-
+  delete q;
   return 0;
 
 }

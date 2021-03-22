@@ -169,6 +169,9 @@ class sequentialDeque : deque<TElem> {
       currentSize = 1;
       capacity = 2;
     };
+  ~sequentialDeque() {
+    delete[] sD;
+  };
 
     bool isFull() {
       return currentSize == capacity;
@@ -186,7 +189,7 @@ class sequentialDeque : deque<TElem> {
       tail = size - 1;
       currentSize = size;
       sD = newSD;
-      delete oldSD;
+      delete[] oldSD;
     };
 
 

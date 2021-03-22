@@ -12,6 +12,7 @@ class queue {
     virtual T peekTail() = 0;
     virtual bool isEmpty() = 0;
     virtual void clean() = 0;
+    virtual ~queue() = default;
 };
 
 template<class T>
@@ -37,6 +38,15 @@ class linkedQueue : queue<T> {
     linkedQueue() : headNode(nullptr) {};
 
     linkedQueue(T elem) : headNode(new node(elem)) {};
+    ~linkedQueue() {
+      if(headNode==nullptr) return;
+      auto aux = headNode;
+      while(aux) {
+	auto aux2=aux->next;
+	delete aux;
+	aux=aux2;
+      }
+    }
 
     void enqueue(T elem) {
       if(isEmpty()) {
