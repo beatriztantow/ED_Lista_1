@@ -18,7 +18,7 @@ jobs:
     - name: questao2
       run: make -C questao_2 test
     - name: questao3
-      run: make -C questao_3 test
+      run: ls -l && make -C questao_3 test
       working-directory: questao_3
       
       
