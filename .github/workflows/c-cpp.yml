@@ -14,13 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: questao1
-      run: make test
-      working-directory: questao_1
+      run: make -C questao_1 test
     - name: questao2
-      run: make test
-      working-directory: questao_2
+      run: make -C questao_2 test
     - name: questao3
-      run: make test
+      run: make -C questao_3 test
       working-directory: questao_3
       
       
