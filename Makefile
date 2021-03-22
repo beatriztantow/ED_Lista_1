@@ -4,4 +4,4 @@ questoes:=questao_1 questao_2 questao_3
 
 all: $(questoes)
 ${questoes}:
-	$(MAKE) -C $@
+	$(MAKE) -C $@ test
