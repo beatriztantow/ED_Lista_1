@@ -4,18 +4,21 @@ test: test-stack test-queue test-queue-using-stack
 	./build/testQueueUsingStack
 
 test-queue: test/testQueue.cpp
+	mkdir -p build
 	g++ -g test/testQueue.cpp -o build/testQueue
 
 debug-queue:
 	gdb build/testQueue
 
 test-queue-using-stack: test/testQueueUsingStack.cpp
+	mkdir -p build
 	g++ -g test/testQueueUsingStack.cpp -o build/testQueueUsingStack
 
 debug-queue-using-stack:
 	gdb build/testQueueUsingStack
 
 test-stack: test/testStack.cpp
+	mkdir -p build
 	g++ -g test/testStack.cpp -o build/testStack
 
 debug-stack:
