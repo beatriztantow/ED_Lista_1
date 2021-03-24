@@ -24,6 +24,7 @@ class deque {
     virtual TElem removeTail() = 0;
     virtual TElem searchHead() = 0;
     virtual TElem searchTail() = 0;
+    virtual ~deque() = default;
 };
 
 template <class TElem>
@@ -58,7 +59,14 @@ class linkedDeque : deque<TElem> {
     linkedDeque(TElem x) {
       m_node = new node(x);
     };
-
+    ~linkedDeque() {
+      auto aux= m_node;
+      while(aux) {
+	auto aux2 = aux->next;
+	delete aux;
+	aux=aux2;
+      }
+    }
     void insertHead(TElem x) {
       if(!m_node) {
         m_node = new node(x);
