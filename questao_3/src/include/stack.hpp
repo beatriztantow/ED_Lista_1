@@ -2,6 +2,7 @@
 #define STACK_H
 
 #include "stackExceptions.hpp"
+#include <iostream>
 
 template<class T>
 class stack {
