@@ -24,6 +24,7 @@ class deque {
     virtual TElem removeTail() = 0;
     virtual TElem searchHead() = 0;
     virtual TElem searchTail() = 0;
+    virtual ~deque() = default;
 };
 
 template <class TElem>
@@ -58,7 +59,14 @@ class linkedDeque : deque<TElem> {
     linkedDeque(TElem x) {
       m_node = new node(x);
     };
-
+    ~linkedDeque() {
+      auto aux= m_node;
+      while(aux) {
+	auto aux2 = aux->next;
+	delete aux;
+	aux=aux2;
+      }
+    }
     void insertHead(TElem x) {
       if(!m_node) {
         m_node = new node(x);
@@ -169,6 +177,9 @@ class sequentialDeque : deque<TElem> {
       currentSize = 1;
       capacity = 2;
     };
+  ~sequentialDeque() {
+    delete[] sD;
+  };
 
     bool isFull() {
       return currentSize == capacity;
@@ -186,7 +197,7 @@ class sequentialDeque : deque<TElem> {
       tail = size - 1;
       currentSize = size;
       sD = newSD;
-      delete oldSD;
+      delete[] oldSD;
     };
 
 

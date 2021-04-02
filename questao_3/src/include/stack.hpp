@@ -12,6 +12,7 @@ class stack {
     virtual T top() = 0;
     virtual bool isEmpty() = 0;
     virtual void clean() = 0;
+    virtual ~stack() = default;
 };
 
 template<class T>
@@ -31,6 +32,16 @@ class linkedStack : stack<T> {
 
     linkedStack(T elem) : topNode(new node(elem)) {};
 
+    ~linkedStack() {
+      if(isEmpty()) return;
+      auto aux=topNode;
+      while(aux) {
+	auto aux2=aux->next;
+	delete aux;
+	aux=aux2;
+      }
+      
+    }
     void printStack() {
       node *aux = topNode;
       if (isEmpty()) {

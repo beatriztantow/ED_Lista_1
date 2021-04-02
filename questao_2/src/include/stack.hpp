@@ -13,6 +13,9 @@ class queue {
     queue() {
       lD = new linkedDeque<TElem>();
     }
+    ~queue() {
+      delete lD;
+    }
     void enqueue(TElem x) {
       lD->insertTail(x);
     };
@@ -35,11 +38,13 @@ class stack {
       queueAux = new queue<TElem>();
       count = 0;
     };
-
+    ~stack() {
+      delete queueMain;
+      delete queueAux;
+    }
     TElem pop() {
       TElem resp;
       if (count > 0) {
-        int aux;
         for (int i = 0; i < count - 1; i++) {
           queueAux->enqueue(queueMain->dequeue());
         }

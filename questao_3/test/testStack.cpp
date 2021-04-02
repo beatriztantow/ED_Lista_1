@@ -23,12 +23,13 @@ int main() {
     s->pop();
     s->pop();
     s->pop();
+    delete s;
     assert(false);
   }
   catch(const emptyStackException& e) {
     assert(true);
   }
-  
+  delete s;
 
   return 0;
 }
